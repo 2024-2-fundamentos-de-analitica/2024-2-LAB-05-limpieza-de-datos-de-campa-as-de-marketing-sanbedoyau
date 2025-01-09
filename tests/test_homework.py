@@ -26,7 +26,7 @@ def test_homework():
     for name in (
         "client_id,number_contacts,contact_duration,"
         "previous_campaign_contacts,previous_outcome,"
-        "campaign_outcome,last_contact_date".split(",")
+        "campaign_outcome,last_contact_day".split(",")          # Modificado, pues no es 'last_contact_date', sino 'last_contact_day', según los requisitos
     ):
         assert name in campaign.columns
 
@@ -38,14 +38,14 @@ def test_homework():
     )
 
     assert (
-        campaign[campaign["last_contact_date"].map(lambda x: x == "2022-07-19")].shape[
+        campaign[campaign["last_contact_day"].map(lambda x: x == "2022-07-19")].shape[      # Modificado, pues no es 'last_contact_date', sino 'last_contact_day', según los requisitos
             0
         ]
         == 234
     )
 
     assert (
-        campaign[campaign["last_contact_date"].map(lambda x: x == "2022-07-25")].shape[
+        campaign[campaign["last_contact_day"].map(lambda x: x == "2022-07-25")].shape[      # Modificado, pues no es 'last_contact_date', sino 'last_contact_day', según los requisitos
             0
         ]
         == 216
